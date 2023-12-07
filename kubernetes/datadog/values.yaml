@@ -1,0 +1,21 @@
+datadog:
+  clusterName: scm-azure-cluster
+  apiKeyExistingSecret: datadog-secret
+  apm:
+    instrumentation:
+      enabled: true
+  logs:
+    enabled: true
+    containerCollectAll: true
+  kubelet:
+    tlsVerify: false
+  tags:
+  - "env:development"
+  otlp:
+    receiver:
+      protocols:
+        grpc:
+          enabled: true
+  env:
+  - name: DD_OTLP_CONFIG_LOGS_ENABLED
+    value: true
